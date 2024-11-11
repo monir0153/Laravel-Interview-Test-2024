@@ -168,7 +168,10 @@
                     success: function(response) {
                         if (response.status == true) {
                             toastr.success(response.message);
-                            window.location.href = "{{ route('login') }}";
+                            $('body').load("{{ route('login') }}", function() {
+                                history.pushState(null, null,
+                                    "{{ route('login') }}");
+                            });
                         }
                     },
                     error: function(error) {

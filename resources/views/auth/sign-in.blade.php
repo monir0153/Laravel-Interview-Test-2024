@@ -152,7 +152,11 @@
                     success: function(response) {
                         if (response.status == true) {
                             toastr.success(response.message);
-                            window.location.href = "{{ route('dashboard') }}";
+                            $('body').load("{{ route('dashboard') }}", function() {
+                                // Update the URL in the browser without reloading the page
+                                history.pushState(null, null,
+                                    "{{ route('dashboard') }}");
+                            });
                         }
                     },
                     error: function(xhr) {
