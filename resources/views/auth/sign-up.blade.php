@@ -9,35 +9,33 @@
     <title>Bytedash - Admin Template</title>
 
     <!-- favicon -->
-    <link rel=icon href={{ asset('html/favicons.png') }} sizes="16x16" type="icon/png">
+    <link rel=icon href="html/favicons.png" sizes="16x16" type="icon/png">
     <!-- animate -->
-    <link rel="stylesheet" href={{ asset('html/assets/css/animate.css') }}>
+    <link rel="stylesheet" href="html/assets/css/animate.css">
     <!-- bootstrap -->
-    <link rel="stylesheet" href={{ asset('html/assets/css/bootstrap.min.css') }}>
+    <link rel="stylesheet" href="html/assets/css/bootstrap.min.css">
     <!-- All Icon -->
-    <link rel="stylesheet" href={{ asset('html/assets/css/icon.css') }}>
+    <link rel="stylesheet" href="html/assets/css/icon.css">
     <!-- slick carousel  -->
-    <link rel="stylesheet" href={{ asset('html/assets/css/slick.css') }}>
+    <link rel="stylesheet" href="html/assets/css/slick.css">
     <!-- Select2 Css -->
-    <link rel="stylesheet" href={{ asset('html/assets/css/select2.min.css') }}>
+    <link rel="stylesheet" href="html/assets/css/select2.min.css">
     <!-- Sweet alert Css -->
-    <link rel="stylesheet" href={{ asset('html/assets/css/sweetalert.css') }}>
+    <link rel="stylesheet" href="html/assets/css/sweetalert.css">
     <!-- Flatpickr Css -->
-    <link rel="stylesheet" href={{ asset('html/assets/css/flatpickr.min.css') }}>
+    <link rel="stylesheet" href="html/assets/css/flatpickr.min.css">
     <!-- Country Select Css -->
-    <link rel="stylesheet" href={{ asset('html/assets/css/niceCountryInput.css') }}>
-    <link rel="stylesheet" href={{ asset('html/assets/css/jsuites.css') }}>
+    <link rel="stylesheet" href="html/assets/css/niceCountryInput.css">
+    <link rel="stylesheet" href="html/assets/css/jsuites.css">
     <!-- Fancy box Css -->
-    <link rel="stylesheet" href={{ asset('html/assets/css/fancybox.css') }}>
+    <link rel="stylesheet" href="html/assets/css/fancybox.css">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href={{ asset('html/assets/css/dashboard.css') }}>
+    <link rel="stylesheet" href="html/assets/css/dashboard.css">
     <!-- dark css -->
 
 </head>
 
 <body>
-
-
 
     <!--login Area start-->
     <section class="loginForm">
@@ -93,12 +91,12 @@
                                 <div class="loginForm__wrapper__another d-flex flex-column gap-2 mt-3">
                                     <a href="javascript:void(0)"
                                         class="loginForm__wrapper__another__btn radius-5 w-100"><img
-                                            src="html/assets/img/icon/googleIocn.svg" alt="" class="icon"> Login With
-                                        Google</a>
+                                            src="html/assets/img/icon/googleIocn.svg" alt="" class="icon">
+                                        Login With Google</a>
                                     <a href="javascript:void(0)"
                                         class="loginForm__wrapper__another__btn radius-5 w-100"><img
-                                            src="html/assets/img/icon/fbIcon.svg" alt="" class="icon">Login With
-                                        Facebook</a>
+                                            src="html/assets/img/icon/fbIcon.svg" alt="" class="icon">Login
+                                        With Facebook</a>
                                 </div>
                             </div>
                         </form>
@@ -116,29 +114,26 @@
     </section>
     <!-- login Area end -->
 
-
-
-
-
     <!-- jquery -->
-    <script src={{ asset('html/assets/js/jquery-3.6.4.min.js') }}></script>
+    <script src="html/assets/js/jquery-3.6.4.min.js"></script>
     <!-- jquery Migrate -->
-    <script src={{ asset('html/assets/js/jquery-migrate-3.4.1.min.js') }}></script>
+    <script src="html/assets/js/jquery-migrate-3.4.1.min.js"></script>
     <!-- bootstrap -->
-    <script src={{ asset('html/assets/js/bootstrap.bundle.min.js') }}></script>
+    <script src="html/assets/js/bootstrap.bundle.min.js"></script>
     <!-- Slick Slider -->
-    <script src={{ asset('html/assets/js/slick.js') }}></script>
+    <script src="html/assets/js/slick.js"></script>
     <!-- Plugins Js -->
-    <script src={{ asset('html/assets/js/plugin.js') }}></script>
+    <script src="html/assets/js/plugin.js"></script>
 
     <!-- Country Select Js -->
-    <script src={{ asset('html/assets/js/niceCountryInput.js') }}></script>
+    <script src="html/assets/js/niceCountryInput.js"></script>
     <!-- Multiple Country Select Js -->
-    <script src={{ asset('html/assets/js/jsuites.js') }}></script>
-    <!-- Fancy box Js -->
-    <script src={{ asset('html/assets/js/fancybox.umd.js') }}></script>
+    <script src="html/assets/js/jsuites.js"></script>
+    <!-- Fancy Box Js -->
+    <script src="html/assets/js/fancybox.umd.js"></script>
     <!-- main js -->
-    <script src={{ asset('html/assets/js/main.js') }}></script>
+    <script src="html/assets/js/main.js"></script>
+
 </body>
 
 </html>

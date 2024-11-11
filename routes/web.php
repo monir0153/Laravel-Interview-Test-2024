@@ -1,15 +1,34 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/{page?}', function ($page = null) {
-    $page = $page ?? 'index.html';
+// Route::get('/', function () {
+//     return Auth::user() ? redirect('/dashboard') : redirect('/login');
+// });
 
-    $path = public_path("html/{$page}");
 
-    if (File::exists($path)) {
-        return response()->file($path);
-    }
+Route::get('/dashboard', function () {
+    // return view('dashboard');
+    return view('pages.dashboard.index');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-    abort(404);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+require __DIR__ . '/auth.php';
+// Route::get('/{page?}', function ($page = null) {
+//     $page = $page ?? 'index.html';
+
+//     $path = public_path("html/{$page}");
+
+//     if (File::exists($path)) {
+//         return response()->file($path);
+//     }
+
+//     abort(404);
+// });
