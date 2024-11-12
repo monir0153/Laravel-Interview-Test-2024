@@ -42,9 +42,8 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        // Determine if the provided input is an email or username
+        // check input is email or username
         $loginType = filter_var($this->input('email'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-        // Create an array containing the login credentials
         $credentials = [$loginType => $this->input('email'), 'password' => $this->input('password')];
 
         if (! Auth::attempt($credentials, $this->boolean('remember'))) {

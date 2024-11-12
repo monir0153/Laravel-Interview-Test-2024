@@ -158,9 +158,8 @@
         $(function() {
             $('#logOutBtn').on('click', function(e) {
                 e.preventDefault();
-                let logOutUrl = "{{ route('logout') }}";
                 $.ajax({
-                    url: logOutUrl,
+                    url: "{{ route('logout') }}",
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
@@ -168,10 +167,11 @@
                     success: function(response) {
                         if (response.status == true) {
                             toastr.success(response.message);
-                            $('body').load("{{ route('login') }}", function() {
-                                history.pushState(null, null,
-                                    "{{ route('login') }}");
-                            });
+                            window.location.href = "{{ route('login') }}";
+                            // $('body').load("{{ route('login') }}", function() {
+                            //     history.pushState(null, null,
+                            //         "{{ route('login') }}");
+                            // });
                         }
                     },
                     error: function(error) {

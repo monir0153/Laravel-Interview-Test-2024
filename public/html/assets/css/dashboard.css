@@ -11909,8 +11909,8 @@
 }
 
 /*---------------------------------------------
-Background-color Makes CSS Class 
-@each <variable> in <expression> { ... } 
+Background-color Makes CSS Class
+@each <variable> in <expression> { ... }
 -----------------------------------------------*/
 .txt-white {
   color: #ffffff !important;
@@ -12501,7 +12501,7 @@ span {
   display: none;
 }
 
-/* 
+/*
 ==================================
     Colors
 ==================================
@@ -12701,7 +12701,7 @@ span {
   color: var(--white-text) !important;
 }
 
-/* 
+/*
 ==================================
     Custom Classes
 ==================================

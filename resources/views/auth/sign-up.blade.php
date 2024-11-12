@@ -9,28 +9,30 @@
     <title>Bytedash - Admin Template</title>
 
     <!-- favicon -->
-    <link rel=icon href="html/favicons.png" sizes="16x16" type="icon/png">
+    <link rel=icon href={{ asset('html/favicons.png') }} sizes="16x16" type="icon/png">
     <!-- animate -->
-    <link rel="stylesheet" href="html/assets/css/animate.css">
+    <link rel="stylesheet" href={{ asset('html/assets/css/animate.css') }}>
     <!-- bootstrap -->
-    <link rel="stylesheet" href="html/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href={{ asset('html/assets/css/bootstrap.min.css') }}>
     <!-- All Icon -->
-    <link rel="stylesheet" href="html/assets/css/icon.css">
+    <link rel="stylesheet" href={{ asset('html/assets/css/icon.css') }}>
     <!-- slick carousel  -->
-    <link rel="stylesheet" href="html/assets/css/slick.css">
+    <link rel="stylesheet" href={{ asset('html/assets/css/slick.css') }}>
     <!-- Select2 Css -->
-    <link rel="stylesheet" href="html/assets/css/select2.min.css">
+    <link rel="stylesheet" href={{ asset('html/assets/css/select2.min.css') }}>
     <!-- Sweet alert Css -->
-    <link rel="stylesheet" href="html/assets/css/sweetalert.css">
+    <link rel="stylesheet" href={{ asset('html/assets/css/sweetalert.css') }}>
     <!-- Flatpickr Css -->
-    <link rel="stylesheet" href="html/assets/css/flatpickr.min.css">
+    <link rel="stylesheet" href={{ asset('html/assets/css/flatpickr.min.css') }}>
     <!-- Country Select Css -->
-    <link rel="stylesheet" href="html/assets/css/niceCountryInput.css">
-    <link rel="stylesheet" href="html/assets/css/jsuites.css">
+    <link rel="stylesheet" href={{ asset('html/assets/css/niceCountryInput.css') }}>
+    <link rel="stylesheet" href={{ asset('html/assets/css/jsuites.css') }}>
     <!-- Fancy box Css -->
-    <link rel="stylesheet" href="html/assets/css/fancybox.css">
+    <link rel="stylesheet" href={{ asset('html/assets/css/fancybox.css') }}>
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="html/assets/css/dashboard.css">
+    <link rel="stylesheet" href={{ asset('html/assets/css/dashboard.css') }}>
+    <!-- toastr css -->
+    <link rel="stylesheet" href={{ asset('html/assets/css/toastr.css') }}>
     <!-- dark css -->
 
 </head>
@@ -49,27 +51,36 @@
                     </div>
                     <div class="loginForm__wrapper mt-4">
                         <!-- Form -->
-                        <form action="#" class="custom_form">
+                        <form class="signUp" method="POST">
+                            @csrf
                             <div class="single_input">
                                 <label class="label_title">Name</label>
                                 <div class="include_icon">
-                                    <input class="form--control radius-5" type="email"
+                                    <input class="form--control radius-5" type="text" name="name"
                                         placeholder="Enter your Full Name">
+                                    <div class="icon"><span class="material-symbols-outlined">person</span></div>
+                                </div>
+                            </div>
+                            <div class="single_input">
+                                <label class="label_title">User name</label>
+                                <div class="include_icon">
+                                    <input class="form--control radius-5" name="username" type="text"
+                                        placeholder="Enter user name">
                                     <div class="icon"><span class="material-symbols-outlined">person</span></div>
                                 </div>
                             </div>
                             <div class="single_input">
                                 <label class="label_title">Email</label>
                                 <div class="include_icon">
-                                    <input class="form--control radius-5" type="email"
-                                        placeholder="Enter your email address">
+                                    <input class="form--control radius-5" name="email" type="email"
+                                        placeholder="Enter your email or Username">
                                     <div class="icon"><span class="material-symbols-outlined">mail</span></div>
                                 </div>
                             </div>
                             <div class="single_input">
                                 <label class="label_title">Password</label>
                                 <div class="include_icon">
-                                    <input class="form--control radius-5" type="password"
+                                    <input class="form--control radius-5" type="password" name="password"
                                         placeholder="Enter your password">
                                     <div class="icon"><span class="material-symbols-outlined">lock</span></div>
                                 </div>
@@ -77,17 +88,18 @@
                             <div class="single_input">
                                 <label class="label_title">Confirm Password</label>
                                 <div class="include_icon">
-                                    <input class="form--control radius-5" type="password"
+                                    <input class="form--control radius-5" type="password" name="password_confirmation"
                                         placeholder="confirm password">
                                     <div class="icon"><span class="material-symbols-outlined">lock</span></div>
                                 </div>
                             </div>
                             <div class="btn_wrapper single_input">
-                                <a href="javascript:void(0)" class="cmn_btn w-100 radius-5">Sign Up</a>
+                                <button type="submit" class="cmn_btn w-100 radius-5">Sign Up</button>
                             </div>
                             <div class="btn-wrapper mt-4">
                                 <p class="loginForm__wrapper__signup"><span>Already have an Account? </span> <a
-                                        href="sign_in.html" class="loginForm__wrapper__signup__btn">Sign In</a></p>
+                                        href="{{ route('login') }}" class="loginForm__wrapper__signup__btn">Sign In</a>
+                                </p>
                                 <div class="loginForm__wrapper__another d-flex flex-column gap-2 mt-3">
                                     <a href="javascript:void(0)"
                                         class="loginForm__wrapper__another__btn radius-5 w-100"><img
@@ -115,25 +127,60 @@
     <!-- login Area end -->
 
     <!-- jquery -->
-    <script src="html/assets/js/jquery-3.6.4.min.js"></script>
+    <script src={{ asset('html/assets/js/jquery-3.6.4.min.js') }}></script>
     <!-- jquery Migrate -->
-    <script src="html/assets/js/jquery-migrate-3.4.1.min.js"></script>
+    <script src={{ asset('html/assets/js/jquery-migrate-3.4.1.min.js') }}></script>
     <!-- bootstrap -->
-    <script src="html/assets/js/bootstrap.bundle.min.js"></script>
+    <script src={{ asset('html/assets/js/bootstrap.bundle.min.js') }}></script>
     <!-- Slick Slider -->
-    <script src="html/assets/js/slick.js"></script>
+    <script src={{ asset('html/assets/js/slick.js') }}></script>
     <!-- Plugins Js -->
-    <script src="html/assets/js/plugin.js"></script>
+    <script src={{ asset('html/assets/js/plugin.js') }}></script>
 
     <!-- Country Select Js -->
-    <script src="html/assets/js/niceCountryInput.js"></script>
+    <script src={{ asset('html/assets/js/niceCountryInput.js') }}></script>
     <!-- Multiple Country Select Js -->
-    <script src="html/assets/js/jsuites.js"></script>
-    <!-- Fancy Box Js -->
-    <script src="html/assets/js/fancybox.umd.js"></script>
+    <script src={{ asset('html/assets/js/jsuites.js') }}></script>
+    <!-- Fancy box Js -->
+    <script src={{ asset('html/assets/js/fancybox.umd.js') }}></script>
+    <!-- toastr css -->
+    <script src={{ asset('html/assets/js/toastr.js') }}></script>
     <!-- main js -->
-    <script src="html/assets/js/main.js"></script>
+    <script src={{ asset('html/assets/js/main.js') }}></script>
 
+    <script>
+        $(function() {
+            $('form.signUp').on('submit', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "{{ route('register') }}",
+                    method: 'POST',
+                    data: new FormData(this),
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        console.log(response)
+                        if (response.status == true) {
+                            toastr.success(response.message);
+                            window.location.href = "{{ route('dashboard') }}";
+                        }
+                    },
+                    error: function(xhr) {
+                        console.log(xhr)
+                        if (xhr.responseJSON && xhr.responseJSON.errors) {
+                            $.each(xhr.responseJSON.errors, function(key, messages) {
+                                messages.forEach(function(message) {
+                                    toastr.error(message);
+                                });
+                            });
+                        } else {
+                            toastr.error(xhr.responseJSON.message);
+                        }
+                    }
+                });
+            })
+        });
+    </script>
 </body>
 
 </html>

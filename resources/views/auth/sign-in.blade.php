@@ -52,7 +52,7 @@
 
                     <div class="loginForm__wrapper mt-4">
                         <!-- Form -->
-                        <form action="{{ route('login') }}" method="POST" class="custom_form">
+                        <form method="POST" class="signIn">
                             @csrf
                             <div class="single_input">
                                 <label class="label_title">Email</label>
@@ -61,18 +61,16 @@
                                         value="{{ old('email') }}" placeholder="Enter your email address">
                                     <div class="icon"><span class="material-symbols-outlined">mail</span></div>
                                 </div>
-                                <x-input-error :messages="$errors->get('email')" class="mt-2" />
                             </div>
-                            <div class="single_input">
+                            <div class="single_input mt-3">
                                 <label class="label_title">Password</label>
                                 <div class="include_icon">
                                     <input class="form--control radius-5" type="password" name="password"
                                         placeholder="Enter your password">
                                     <div class="icon"><span class="material-symbols-outlined">lock</span></div>
                                 </div>
-                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
                             </div>
-                            <div class="loginForm__wrapper__remember single_input">
+                            <div class="loginForm__wrapper__remember single_input mt-3">
                                 <div class="dashboard_checkBox">
                                     <input class="dashboard_checkBox__input" id="remember" name="remember"
                                         type="checkbox">
@@ -88,7 +86,8 @@
                             </div>
                             <div class="btn-wrapper mt-4">
                                 <p class="loginForm__wrapper__signup"><span>Don’t have an account ? </span> <a
-                                        href="sign_up.html" class="loginForm__wrapper__signup__btn">Sign Up</a></p>
+                                        href="{{ route('register') }}" class="loginForm__wrapper__signup__btn">Sign
+                                        Up</a></p>
                                 <div class="loginForm__wrapper__another d-flex flex-column gap-2 mt-3">
                                     <a href="javascript:void(0)"
                                         class="loginForm__wrapper__another__btn radius-5 w-100"><img
@@ -139,24 +138,18 @@
 
     <script>
         $(function() {
-            $('form.custom_form').on('submit', function(e) {
+            $('form.signIn').on('submit', function(e) {
                 e.preventDefault();
-                let formData = new FormData(this);
-                let loginUrl = "{{ route('login') }}";
                 $.ajax({
-                    url: loginUrl,
+                    url: "{{ route('login') }}",
                     method: 'POST',
-                    data: formData,
+                    data: new FormData(this),
                     processData: false,
                     contentType: false,
                     success: function(response) {
                         if (response.status == true) {
                             toastr.success(response.message);
-                            $('body').load("{{ route('dashboard') }}", function() {
-                                // Update the URL in the browser without reloading the page
-                                history.pushState(null, null,
-                                    "{{ route('dashboard') }}");
-                            });
+                            window.location.href = "{{ route('dashboard') }}";
                         }
                     },
                     error: function(xhr) {
@@ -166,10 +159,13 @@
                                     toastr.error(message);
                                 });
                             });
+                        } else {
+                            toastr.error(xhr.responseJSON.message);
                         }
                     }
                 });
             })
+
         });
     </script>
 
