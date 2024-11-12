@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -23,10 +25,12 @@ class PasswordResetLinkController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request): JsonResponse
     {
         $request->validate([
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'exists:users,email'],
+        ], [
+            'email.exists' => 'Email does not exist in our application.',
         ]);
 
         // We will send the password reset link to this user. Once we have attempted
@@ -36,9 +40,10 @@ class PasswordResetLinkController extends Controller
             $request->only('email')
         );
 
-        return $status == Password::RESET_LINK_SENT
-                    ? back()->with('status', __($status))
-                    : back()->withInput($request->only('email'))
-                        ->withErrors(['email' => __($status)]);
+        // return $status == Password::RESET_LINK_SENT
+        //     ? back()->with('status', __($status))
+        //     : back()->withInput($request->only('email'))
+        //     ->withErrors(['email' => __($status)]);
+        return response()->json(['status' => true, 'message' => 'We have sent you a password reset link. Please check your email.'], 200);
     }
 }

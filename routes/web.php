@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,14 +22,14 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-// Route::get('/{page?}', function ($page = null) {
-//     $page = $page ?? 'index.html';
+Route::get('/{page?}', function ($page = null) {
+    $page = $page ?? 'index.html';
 
-//     $path = public_path("html/{$page}");
+    $path = public_path("html/{$page}");
 
-//     if (File::exists($path)) {
-//         return response()->file($path);
-//     }
+    if (File::exists($path)) {
+        return response()->file($path);
+    }
 
-//     abort(404);
-// });
+    abort(404);
+});
