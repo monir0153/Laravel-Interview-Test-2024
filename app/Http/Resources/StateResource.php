@@ -17,6 +17,8 @@ class StateResource extends JsonResource
         // return parent::toArray($request);
         return [
             'id' => $this->id,
+            'country_id' => $this->country_id,
+            'country_name' => $this->country->name,
             'name' => $this->name,
             'description' => $this->description,
             'cities' => CityResource::collection($this->cities),

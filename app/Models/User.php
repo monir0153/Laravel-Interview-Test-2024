@@ -46,4 +46,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public static function truncate()
+    {
+        static::query()->truncate();
+    }
 }

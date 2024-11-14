@@ -34,7 +34,7 @@
     <!-- toastr css -->
     <link rel="stylesheet" href={{ asset('html/assets/css/toastr.css') }}>
     <!-- dark css -->
-
+    <link rel="stylesheet" href={{ asset('html/assets/css/dashboard_dark.css') }}>
 </head>
 
 <body>

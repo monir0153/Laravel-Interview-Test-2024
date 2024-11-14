@@ -14,4 +14,9 @@ class Country extends Model
     {
         return $this->hasMany(State::class);
     }
+
+    public static function truncate()
+    {
+        static::query()->truncate();
+    }
 }

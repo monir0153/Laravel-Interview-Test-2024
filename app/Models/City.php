@@ -14,4 +14,8 @@ class City extends Model
     {
         return $this->belongsTo(State::class);
     }
+    public static function truncate()
+    {
+        static::query()->truncate();
+    }
 }
