@@ -1,12 +1,12 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Http\Requests\City;
 
 use Illuminate\Contracts\Validation\Validator as Validation;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class {{ class }} extends FormRequest
+class StoreCityRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,15 @@ class {{ class }} extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'state_id' => ['required', 'integer'],
+            'name' => ['required', 'string', 'max:150'],
+            'description' => ['nullable', 'string', 'max:255']
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'state_id.required' => 'The state name is required.',
         ];
     }
     public function failedValidation(Validation $validator)

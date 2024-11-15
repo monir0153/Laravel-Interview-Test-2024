@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StateController;
@@ -32,6 +33,11 @@ Route::middleware(['auth'])->controller(StateController::class)->prefix('state')
     Route::get('add', 'add')->name('state.add');
     Route::get('view', 'view')->name('state.view');
     Route::get('edit/{id}', 'edit')->name('state.edit');
+});
+Route::middleware(['auth'])->controller(CityController::class)->prefix('city')->group(function () {
+    Route::get('add', 'add')->name('city.add');
+    Route::get('view', 'view')->name('city.view');
+    Route::get('edit/{id}', 'edit')->name('city.edit');
 });
 
 require __DIR__ . '/auth.php';

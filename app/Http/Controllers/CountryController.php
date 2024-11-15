@@ -31,7 +31,7 @@ class CountryController extends Controller
     public function store(StoreCountryRequest $request): JsonResponse
     {
         Country::create($request->validated());
-        return Response::success(message: 'Country created successfully');
+        return Response::created(message: 'Country created successfully');
     }
 
     /**
@@ -50,7 +50,7 @@ class CountryController extends Controller
     public function update(UpdateCountryRequest $request, Country $country): JsonResponse
     {
         $country->update($request->validated());
-        return Response::success(message: 'Country updated');
+        return Response::updated(message: 'Country updated');
     }
 
     /**

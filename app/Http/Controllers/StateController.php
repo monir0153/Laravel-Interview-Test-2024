@@ -30,7 +30,7 @@ class StateController extends Controller
     public function store(StoreStateRequest $request): JsonResponse
     {
         State::create($request->validated());
-        return Response::success(message: 'State created successfully');
+        return Response::created(message: 'State created successfully');
     }
 
     /**

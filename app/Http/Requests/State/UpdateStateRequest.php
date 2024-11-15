@@ -24,7 +24,9 @@ class UpdateStateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'country_id' => ['required', 'integer'],
+            'name' => ['required', 'string', 'max:100'],
+            'description' => ['nullable', 'string', 'max:255'],
         ];
     }
     public function failedValidation(Validation $validator)
@@ -33,6 +35,6 @@ class UpdateStateRequest extends FormRequest
             'status'   => false,
             'message'   => 'Validation errors',
             'errors'      => $validator->errors()
-        ], 400));
+        ], 422));
     }
 }

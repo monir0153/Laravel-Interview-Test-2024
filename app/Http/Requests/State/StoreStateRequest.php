@@ -43,6 +43,6 @@ class StoreStateRequest extends FormRequest
             'status'   => false,
             'message'   => 'Validation errors',
             'errors'      => $validator->errors()
-        ], 400));
+        ], 422));
     }
 }

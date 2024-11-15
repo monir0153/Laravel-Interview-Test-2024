@@ -1,24 +1,24 @@
 <x-dashboard-layout>
     <div class="dashboard__inner__item dashboard__card bg__white padding-20 radius-10">
-        <h4 class="dashboard__inner__item__header__title">Create State</h4>
-        <form class="mt-5" id="create-state-form">
+        <h4 class="dashboard__inner__item__header__title">Create City</h4>
+        <form class="mt-5" id="create-city-form">
             @csrf
             <div class="form__input__flex">
                 <div class="form__input__single">
-                    <label for="name5" class="form__input__single__label">Country Name</label>
-                    <select class="js-example-basic-single" name="country_id" id="name5">
+                    <label for="name5" class="form__input__single__label">State Name</label>
+                    <select class="js-example-basic-single" name="state_id" id="name5">
 
                     </select>
                 </div>
                 <div class="form__input__single">
-                    <label for="name6" class="form__input__single__label">State Name</label>
+                    <label for="name6" class="form__input__single__label">City Name</label>
                     <input type="text" name="name" id="name6" class="form__control radius-5"
-                        placeholder="state Name">
+                        placeholder="City Name">
                 </div>
                 <div class="form__input__single">
-                    <label for="name6" class="form__input__single__label">State Description</label>
+                    <label for="name6" class="form__input__single__label">City Description</label>
                     <input type="text" name="description" id="description" class="form__control radius-5"
-                        placeholder="state Description">
+                        placeholder="City Description">
                 </div>
             </div>
 
@@ -30,37 +30,37 @@
         <script>
             $(function() {
                 $('.js-example-basic-single').select2({
-                    placeholder: 'Select a Country Name',
+                    placeholder: 'Select a state',
                 });
-                fetchCountryData();
+                fetchStateData();
             })
-            async function fetchCountryData() {
+            async function fetchStateData() {
                 const data = await $.ajax({
-                    url: "{{ route('country.index') }}",
+                    url: "{{ route('state.index') }}",
                     method: 'GET',
                     success: function(response) {
-                        let options = '';
-                        response.data.forEach(country => {
-                            options += `<option value="${country.id}">${country.name}</option>`;
+                        let options = '<option value="">Select a state</option>';
+                        response.data.forEach(state => {
+                            options += `<option value="${state.id}">${state.name}</option>`;
                         });
                         $('.js-example-basic-single').html(options);
                     },
                     error: function(error) {
-                        // console.error(error);
+                        console.error(error);
                     }
                 })
             }
             // create state
-            $('#create-state-form').on('submit', async function(e) {
+            $('#create-city-form').on('submit', async function(e) {
                 e.preventDefault();
                 await $.ajax({
-                    url: "{{ route('state.store') }}",
+                    url: "{{ route('city.store') }}",
                     method: 'POST',
                     data: $(this).serialize(),
                     success: function(response) {
                         if (response.status == true) {
                             toastr.success(response.message);
-                            window.location.href = "{{ route('state.view') }}";
+                            window.location.href = "{{ route('city.view') }}";
                         }
                     },
                     error: function(xhr) {

@@ -33,36 +33,12 @@
                     <a href="{{ route('state.view') }}"><span class="icon_title">State</span></a>
                 </li>
                 <li
-                    class="dashboard__bottom__list__item {{ request()->routeIs('country.view', 'country.edit') ? 'active' : '' }}">
-                    <a href="{{ route('country.view') }}"><span class="icon_title">City</span></a>
-                </li>
-                <li class="dashboard__bottom__list__item has-children">
-                    <a href="basic_form.html"><span class="icon_title">Form</span></a>
-                </li>
-                <li class="dashboard__bottom__list__item has-children">
-                    <a href="table.html"><span class="icon_title">Table</span></a>
-                </li>
-                <li class="dashboard__bottom__list__item has-children">
-                    <a href="javascript:void(0)"><i class="material-symbols-outlined">group</i> <span
-                            class="icon_title">User</span></a>
-                    <ul class="submenu">
-                        <li class="dashboard__bottom__list__item">
-                            <a href="sign_in.html">Login</a>
-                        </li>
-                        <li class="dashboard__bottom__list__item">
-                            <a href="sign_up.html">Register</a>
-                        </li>
-                        <li class="dashboard__bottom__list__item">
-                            <a href="forgot_password.html">Reset Password</a>
-                        </li>
-                        <li class="dashboard__bottom__list__item">
-                            <a href="mail_varification.html">Mail Varification</a>
-                        </li>
-                    </ul>
+                    class="dashboard__bottom__list__item {{ request()->routeIs('city.view', 'city.edit', 'city.add') ? 'active' : '' }}">
+                    <a href="{{ route('city.view') }}"><span class="icon_title">City</span></a>
                 </li>
                 <li class="dashboard__bottom__list__item">
-                    <a href="javascript:void(0)"><i class="material-symbols-outlined">logout</i> <span
-                            class="icon_title">Log Out</span></a>
+                    <a id="logOutBtn"><i class="material-symbols-outlined">logout</i> <span class="icon_title">Log
+                            Out</span></a>
                 </li>
             </ul>
         </div>
